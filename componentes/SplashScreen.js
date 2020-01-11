@@ -7,13 +7,14 @@ import {
 } from 'react-native';
 
 class SplashScreen extends Component {
-    constructor(props){
-        super(props)
-    }
     render(){
+        //<Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
+        //style={{width: 400, height: 400}} />
         return(
             <View>
-                <Image source={require(this.props.source)}/>
+                <Image source={require('../images/57857_foto.jpg')}/>
+                <Text>{this.props.name}</Text>
+                <Text style={{fontWeight: 'bold'}}>{this.props.surname}</Text>
             </View>
         )
     }

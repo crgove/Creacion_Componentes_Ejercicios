@@ -13,26 +13,53 @@ import {
   Alert,
 } from 'react-native';
 import SplashScreen from './componentes/SplashScreen';
-import Formulario from './formularioMasaCorporal';
-import calcularMasa from './funcionCalcularMasa';
+import Formulario from './componentes/formularioMasaCorporal';
 
 
 class App extends Component {
+  constructor(props){
+    super(props)
 
+    this.state = {
+      mostrarSplash: true,
+      mostrarFormulario: true, 
+    }
+  }
 
-  /*componentDidMount(){
+  componentDidMount(){
     setTimeout(() => {
-      Alert.alert(SplashScreen)
+      this.setState({mostrarSplash: false})
     }, 3000);
-  }*/
+  }
+
+  componentDidUpdate(){
+    setTimeout(() => {
+      this.setState({mostrarFormulario: false})
+    }, 3000);
+  }
 
   render(){
-    return(
-      <View>
-        <SplashScreen source='./images/57857_foto.jpg'/>
-        <Text>APP PRINCIPAL</Text>
+    if(this.state.mostrarSplash === true){
+      return(
+        <View>
+        <SplashScreen name='Cristina' surname='Gonzalez'/>
       </View>
-    )
+      )
+    } else if(this.state.mostrarFormulario === true){
+      return(
+        <View>
+          <Formulario />
+        </View>
+      )
+    } else {
+      return (
+        <View>
+          <Text>APP PRINCIPAL</Text>
+        </View>
+        
+      )
+    }
+
   }
 };
 
