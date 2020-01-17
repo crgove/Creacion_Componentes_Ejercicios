@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import SplashScreen from './componentes/SplashScreen';
 import Formulario from './componentes/formularioMasaCorporal';
+import Manel from './componentes/Manel';
 
 
 class App extends Component {
@@ -22,7 +23,7 @@ class App extends Component {
 
     this.state = {
       mostrarSplash: true,
-      mostrarFormulario: true, 
+      //mostrarFormulario: true, 
     }
   }
 
@@ -32,11 +33,11 @@ class App extends Component {
     }, 3000);
   }
 
-  componentDidUpdate(){
+  /*componentDidUpdate(){
     setTimeout(() => {
       this.setState({mostrarFormulario: false})
     }, 3000);
-  }
+  }*/
 
   render(){
     if(this.state.mostrarSplash === true){
@@ -45,16 +46,11 @@ class App extends Component {
         <SplashScreen name='Cristina' surname='Gonzalez'/>
       </View>
       )
-    } else if(this.state.mostrarFormulario === true){
-      return(
-        <View>
-          <Formulario />
-        </View>
-      )
     } else {
       return (
         <View>
-          <Text>APP PRINCIPAL</Text>
+          <Formulario />
+          <Manel />
         </View>
         
       )
